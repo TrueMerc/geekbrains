@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useState } from "react"
 
 export const Application = () => {
@@ -16,12 +16,14 @@ export const Application = () => {
 
     return (
         <div>
-            <label htmlFor="text-input">Введите текст:&nbsp;</label>
-            <input type="text" id="text-input" onChange={handleInputChange} value={currentMessage}></input>
+            <label htmlFor="text-input">
+                Введите текст:&nbsp;
+            </label>
+            <input type="text" id="text-input" onChange={handleInputChange} value={currentMessage}/>
             <br/>
-            <input type="submit" id="submit-button" onClick={handleSubmit} value="Отправить"></input>      
+            <input type="submit" id="submit-button" onClick={handleSubmit} value="Отправить"/>
             <div>
-                <p>Введены сообщения</p>
+                <p>Введены сообщения:</p>
                 <ol>
                 {messages.map((message) => {
                     return (
