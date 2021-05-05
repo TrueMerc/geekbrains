@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Messages from "./Messages.jsx";
 
@@ -6,12 +6,24 @@ export const Application = () => {
     const [messages, setMessages] = useState([]);
     const [currentMessage, setCurrentMessage] = useState('');
 
+    useEffect(() => {
+        if(messages.length > 0) {
+            const lastMessage = messages[messages.length - 1];
+            if (lastMessage.author.toLocaleLowerCase() === "human") {
+                const answerText = (lastMessage.text.toLocaleLowerCase().search('привет') !== -1)
+                    ? 'Привет!'
+                    : 'Не могу разобрать сообщение.';
+                setMessages([...messages, { text: answerText, author: 'Robot' }]);
+            }
+        }
+    }, [messages]);
+
     const handleInputChange = (changeEvent) => {
         setCurrentMessage(changeEvent.target.value);
     }
 
     const handleSubmit = () => {
-        setMessages([...messages, {text: currentMessage, author: 'Human'}]);
+        setMessages([...messages, { text: currentMessage, author: 'Human' }]);
         setCurrentMessage('');
     }
 
