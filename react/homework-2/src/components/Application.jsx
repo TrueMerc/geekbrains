@@ -11,7 +11,7 @@ export const Application = () => {
     }
 
     const handleSubmit = () => {
-        setMessages([...messages, currentMessage]);
+        setMessages([...messages, {text: currentMessage, author: 'Human'}]);
         setCurrentMessage('');
     }
 

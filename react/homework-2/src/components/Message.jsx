@@ -1,8 +1,15 @@
 import React from "react";
+import '../main.css';
 
 const Message = (props) => {
+
+    const {author, text} = props;
+    const className = (author.toLocaleLowerCase() === 'human' ? 'human-message' : 'robot-message');
+
     return (
-        <li>{props.text}</li>
+        <li className={className}>
+            [{author}]: {text}
+        </li>
     );
 }
 

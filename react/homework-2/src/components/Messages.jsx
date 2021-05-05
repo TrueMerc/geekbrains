@@ -10,7 +10,7 @@ const Messages = (props) => {
             <p>Введены сообщения:</p>
             <ol>
                 {messages.map((message, index) => {
-                    return <Message key={'message' + index} text={message} />
+                    return <Message key={'message' + index} text={message.text} author={message.author} />
                 })}
             </ol>
         </div>
