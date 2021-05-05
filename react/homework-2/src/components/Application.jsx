@@ -21,7 +21,9 @@ export const Application = () => {
             </label>
             <input type="text" id="text-input" onChange={handleInputChange} value={currentMessage}/>
             <br/>
-            <input type="submit" id="submit-button" onClick={handleSubmit} value="Отправить"/>
+            <button onClick={handleSubmit}>
+                Отправить
+            </button>
             <div>
                 <p>Введены сообщения:</p>
                 <ol>
