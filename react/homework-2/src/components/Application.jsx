@@ -11,7 +11,7 @@ export const Application = () => {
     }
 
     const handleSubmit = () => {
-        setMessages(messages.concat(currentMessage));
+        setMessages([...messages, currentMessage]);
         setCurrentMessage('');
     }
 
