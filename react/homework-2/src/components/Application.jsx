@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react"
+import { useState } from "react";
+import Messages from "./Messages.jsx";
 
 export const Application = () => {
     const [messages, setMessages] = useState([]);
@@ -8,7 +9,7 @@ export const Application = () => {
     const handleInputChange = (changeEvent) => {
         setCurrentMessage(changeEvent.target.value);
     }
-    
+
     const handleSubmit = () => {
         setMessages(messages.concat(currentMessage));
         setCurrentMessage('');
@@ -19,22 +20,12 @@ export const Application = () => {
             <label htmlFor="text-input">
                 Введите текст:&nbsp;
             </label>
-            <input type="text" id="text-input" onChange={handleInputChange} value={currentMessage}/>
-            <br/>
+            <input type="text" id="text-input" onChange={handleInputChange} value={currentMessage} />
+            <br />
             <button onClick={handleSubmit}>
                 Отправить
             </button>
-            <div>
-                <p>Введены сообщения:</p>
-                <ol>
-                {messages.map((message) => {
-                    return (
-                        <li>{message}</li>
-                    );
-                    }
-                )}
-                </ol>
-            </div>
+            <Messages messages={messages} />
         </div>
     );
 }
