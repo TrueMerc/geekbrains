@@ -9,7 +9,7 @@ const Message = (props) => {
 
     return (
         <li className={className}>
-            [{author}]: {text}
+            [{author === Authors.HUMAN ? 'Human' : 'Bot'}]: {text}
         </li>
     );
 }
