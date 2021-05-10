@@ -4,7 +4,7 @@ import Messages from "./Messages.jsx";
 import Authors from "../domain/Authors"
 import InputForm from "./InputForm.jsx";
 
-export const Application = () => {
+export const Layout = () => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
