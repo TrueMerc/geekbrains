@@ -3,7 +3,7 @@ import Message from "./Message.jsx"
 
 const Messages = (props) => {
 
-    const { className, messages } = props;
+    const { messages } = props;
     console.log(messages);
     return (
         <div>

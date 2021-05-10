@@ -1,42 +1,32 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Messages from "./Messages.jsx";
+import Authors from "../domain/Authors"
+import InputForm from "./InputForm.jsx";
 
 export const Application = () => {
     const [messages, setMessages] = useState([]);
-    const [currentMessage, setCurrentMessage] = useState('');
 
     useEffect(() => {
-        if(messages.length > 0) {
+        if (messages.length > 0) {
             const lastMessage = messages[messages.length - 1];
-            if (lastMessage.author.toLocaleLowerCase() === "human") {
+            if (lastMessage.author === Authors.HUMAN) {
                 const answerText = (lastMessage.text.toLocaleLowerCase().search('привет') !== -1)
                     ? 'Привет!'
                     : 'Не могу разобрать сообщение.';
-                setMessages([...messages, { text: answerText, author: 'Robot' }]);
+                setMessages([...messages, { text: answerText, author: Authors.BOT }]);
             }
         }
     }, [messages]);
 
-    const handleInputChange = (changeEvent) => {
-        setCurrentMessage(changeEvent.target.value);
-    }
 
-    const handleSubmit = () => {
-        setMessages([...messages, { text: currentMessage, author: 'Human' }]);
-        setCurrentMessage('');
+    const handleSubmit = (message) => {
+        setMessages([...messages, { text: message, author: Authors.HUMAN }]);
     }
 
     return (
         <div>
-            <label htmlFor="text-input">
-                Введите текст:&nbsp;
-            </label>
-            <input type="text" id="text-input" onChange={handleInputChange} value={currentMessage} />
-            <br />
-            <button onClick={handleSubmit}>
-                Отправить
-            </button>
+            <InputForm onSubmit={handleSubmit} />
             <Messages messages={messages} />
         </div>
     );
