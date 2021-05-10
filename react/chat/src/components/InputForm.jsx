@@ -23,7 +23,6 @@ const InputForm = ({ onSubmit }) => {
                 <TextField
                     name="input"
                     fullWidth={true}
-                    hintText="Введите сообщение"
                     onChange={handleInputChange}
                     value={currentMessage}
                 />
