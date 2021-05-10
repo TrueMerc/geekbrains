@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { TextField } from "@material-ui/core";
 
-const InputForm=({onSubmit}) => {
+const InputForm = ({ onSubmit }) => {
     const [currentMessage, setCurrentMessage] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
+
         onSubmit(currentMessage);
         setCurrentMessage('');
     }
@@ -19,7 +20,14 @@ const InputForm=({onSubmit}) => {
             <label htmlFor="text-input">
                 Введите текст:&nbsp;
             </label>
-            <input type="text" id="text-input" onChange={handleInputChange} value={currentMessage} />
+            {/* <input type="text" id="text-input" onChange={handleInputChange} value={currentMessage} /> */}
+            <TextField
+                name="input" 
+                fullWidth={true} 
+                hintText="Введите сообщение"
+                onChange={handleInputChange}
+                value={currentMessage}
+            />
             <br />
             <input type="submit" value="Отправить" />
         </form>

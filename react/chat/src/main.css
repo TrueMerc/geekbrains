@@ -5,3 +5,10 @@
 .human-message {
     color: blue;
 }
+
+
+.messages-field {
+    width: 100%;
+    height: 30vh;
+    border-bottom: 1px, solid;
+}

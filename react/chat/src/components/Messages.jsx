@@ -1,12 +1,13 @@
 import React from "react";
 import Message from "./Message.jsx"
+import '../main.css'
 
 const Messages = (props) => {
 
     const { messages } = props;
     console.log(messages);
     return (
-        <div>
+        <div className="messages-field">
             <p>Введены сообщения:</p>
             <ol>
                 {messages.map((message, index) => {

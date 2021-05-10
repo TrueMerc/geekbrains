@@ -26,8 +26,8 @@ export const Application = () => {
 
     return (
         <div>
-            <InputForm onSubmit={handleSubmit} />
             <Messages messages={messages} />
+            <InputForm onSubmit={handleSubmit} />
         </div>
     );
 }
