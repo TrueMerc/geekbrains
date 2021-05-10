@@ -8,7 +8,7 @@ const Messages = (props) => {
     console.log(messages);
     return (
         <div className="messages-field">
-            <p>Введены сообщения:</p>
+            <h3>Сообщения:</h3>
             <ol>
                 {messages.map((message, index) => {
                     return <Message key={'message' + index} text={message.text} author={message.author} />
