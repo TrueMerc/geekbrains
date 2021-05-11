@@ -7,7 +7,7 @@ import InputForm from "./InputForm.jsx";
 import Messages from "./Messages.jsx";
 import "../main.css";
 
-export const Layout = () => {
+export const Layout = ({chatsCount}) => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
@@ -31,7 +31,7 @@ export const Layout = () => {
         <>
             <Header />
             <div style={{ width: '100%', height: '100%', display: 'flex', overflow: 'hidden' }}>
-                <ChatList />
+                <ChatList chatsCount={chatsCount} />
                 <div className="messenger">
                     <Messages messages={messages} />
                     <InputForm onSubmit={handleSubmit} />

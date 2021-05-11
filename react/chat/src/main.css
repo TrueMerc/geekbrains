@@ -39,3 +39,8 @@ html {
     color: #fff;
     background-color: navy;
 }
+
+.input-form {
+    width: 100%;
+    display: flex;
+}

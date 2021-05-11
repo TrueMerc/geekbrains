@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Fab } from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
+import "../main.css";
 
 const InputForm = ({ onSubmit }) => {
     const [currentMessage, setCurrentMessage] = useState('');
@@ -19,7 +20,7 @@ const InputForm = ({ onSubmit }) => {
     return (
         <form onSubmit={handleSubmit}>
             <p>Введите текст:</p>
-            <div style={{ width: '100%', display: "flex" }}>
+            <div className="input-form">
                 <TextField
                     name="input"
                     fullWidth={true}

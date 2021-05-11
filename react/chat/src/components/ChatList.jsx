@@ -3,15 +3,15 @@ import { List, ListItem } from "@material-ui/core";
 import "../main.css";
 
 
-const ChatList = () => {
+const ChatList = ({chatsCount}) => {
+    console.log(chatsCount);
     return (
         <List className="chat-list">
-            <ListItem>Чат №1</ListItem>
-            <ListItem>Чат №2</ListItem>
-            <ListItem>Чат №3</ListItem>
-            <ListItem>Чат №4</ListItem>
-            <ListItem>Чат №5</ListItem>
-            <ListItem>Чат №5</ListItem>
+            {Array.from(Array(chatsCount).keys()).map(element => (
+                <ListItem key={"listItem" + element}>
+                    {`Чат № ${element + 1}`}
+                </ListItem>
+            ))}
         </List>
     );
 }

@@ -3,6 +3,6 @@ import ReactDOM from "react-dom";
 import { Layout } from "./components/Layout.jsx";
 
 ReactDOM.render(
-    <Layout />,
+    <Layout chatsCount={10} />,
     document.getElementById("main")
 );
