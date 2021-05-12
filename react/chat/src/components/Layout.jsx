@@ -6,8 +6,10 @@ import Header from "./Header.jsx";
 import InputForm from "./InputForm.jsx";
 import Messages from "./Messages.jsx";
 import "../main.css";
+import { Profile } from "./Profile.jsx";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-export const Layout = ({chatsCount}) => {
+export const Layout = ({ chatsCount }) => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
@@ -32,10 +34,19 @@ export const Layout = ({chatsCount}) => {
             <Header />
             <div style={{ width: '100%', height: '100%', display: 'flex', overflow: 'hidden' }}>
                 <ChatList chatsCount={chatsCount} />
-                <div className="messenger">
-                    <Messages messages={messages} />
-                    <InputForm onSubmit={handleSubmit} />
-                </div>
+                <BrowserRouter>
+                    <Switch >
+                        <Route path="/" exact>
+                            <div className="main-area">
+                                <Messages messages={messages} />
+                                <InputForm onSubmit={handleSubmit} />
+                            </div>
+                        </Route>
+                        <Route profile="/profile" exact>
+                            <Profile />
+                        </Route>
+                    </Switch>
+                </BrowserRouter>
             </div>
         </>
     );
