@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Authors from "../domain/Authors"
+import Chat from "./Chat.jsx"
 import ChatList from "./ChatList.jsx";
 import Header from "./Header.jsx";
-import InputForm from "./InputForm.jsx";
-import Messages from "./Messages.jsx";
 import "../main.css";
 import { Profile } from "./Profile.jsx";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -35,13 +34,9 @@ export const Layout = ({ chatsCount }) => {
                 <Header />
                 <div style={{ width: '100%', height: '100%', display: 'flex', overflow: 'hidden' }}>
                     <ChatList chatsCount={chatsCount} />
-
                     <Switch >
                         <Route path="/" exact>
-                            <div className="main-area">
-                                <Messages messages={messages} />
-                                <InputForm onSubmit={handleSubmit} />
-                            </div>
+                            <Chat messages={messages} onSubmit={handleSubmit} />
                         </Route>
                         <Route path="/profile">
                             <Profile />
