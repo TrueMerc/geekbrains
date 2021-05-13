@@ -31,10 +31,11 @@ export const Layout = ({ chatsCount }) => {
 
     return (
         <>
-            <Header />
-            <div style={{ width: '100%', height: '100%', display: 'flex', overflow: 'hidden' }}>
-                <ChatList chatsCount={chatsCount} />
-                <BrowserRouter>
+            <BrowserRouter>
+                <Header />
+                <div style={{ width: '100%', height: '100%', display: 'flex', overflow: 'hidden' }}>
+                    <ChatList chatsCount={chatsCount} />
+
                     <Switch >
                         <Route path="/" exact>
                             <div className="main-area">
@@ -42,12 +43,12 @@ export const Layout = ({ chatsCount }) => {
                                 <InputForm onSubmit={handleSubmit} />
                             </div>
                         </Route>
-                        <Route profile="/profile" exact>
+                        <Route path="/profile">
                             <Profile />
                         </Route>
                     </Switch>
-                </BrowserRouter>
-            </div>
+                </div>
+            </BrowserRouter>
         </>
     );
 }
