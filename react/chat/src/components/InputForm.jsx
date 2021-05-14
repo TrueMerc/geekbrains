@@ -3,13 +3,13 @@ import { TextField, Fab } from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
 import "../main.css";
 
-const InputForm = ({ onSubmit }) => {
+const InputForm = ({chatId, onSubmit }) => {
     const [currentMessage, setCurrentMessage] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        onSubmit(currentMessage);
+        onSubmit(chatId, currentMessage);
         setCurrentMessage('');
     }
 

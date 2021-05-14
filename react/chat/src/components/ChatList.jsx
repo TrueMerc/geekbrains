@@ -1,17 +1,21 @@
 import React from "react";
 import { List, ListItem } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import "../main.css";
 
 
-const ChatList = ({chatsCount}) => {
-    console.log(chatsCount);
+const ChatList = ({ chatsInfo }) => {
+    console.log(chatsInfo);
     return (
         <List className="chat-list">
-            {Array.from(Array(chatsCount).keys()).map(element => (
-                <ListItem key={"listItem" + element}>
-                    {`Чат № ${element + 1}`}
+            {chatsInfo.map(chatInfo => (
+                <ListItem key={"listItem" + chatInfo.id}>
+                    <Link to={'/chats/' + chatInfo.id}>
+                        {chatInfo.name}
+                    </Link>
                 </ListItem>
-            ))}
+            ))
+            }
         </List>
     );
 }
