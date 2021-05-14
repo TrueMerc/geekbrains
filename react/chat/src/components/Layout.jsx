@@ -15,31 +15,33 @@ export const Layout = ({ chatsCount }) => {
         ))
     );
 
-    const [lastChatId, setLastChatId] = useState(-1); 
+    const [lastChatId, setLastChatId] = useState(-1);
 
 
-    // // Bot answer    
-    // useEffect(() => {
-    //     if (messages.length > 0) {
-    //         const lastMessage = messages[messages.length - 1];
-    //         if (lastMessage.author === Authors.HUMAN) {
-    //             const answerText = (lastMessage.text.toLocaleLowerCase().search('привет') !== -1)
-    //                 ? 'Привет!'
-    //                 : 'Не могу разобрать сообщение.';
-    //             setMessages([...messages, { text: answerText, author: Authors.BOT }]);
-    //         }
-    //     }
-    // }, [messages]);
+    // Bot answer    
+    useEffect(() => {
+        if (lastChatId < 0) {
+            return;
+        }
+        const messages = chats[lastChatId].messages;
+        if (messages.length > 0) {
+            const lastMessage = messages[messages.length - 1];
+            if (lastMessage.author === Authors.HUMAN) {
+                const answerText = (lastMessage.text.toLocaleLowerCase().search('привет') !== -1)
+                    ? 'Привет!'
+                    : 'Не могу разобрать сообщение.';
+                chats[lastChatId].messages = [...messages, { text: answerText, author: Authors.BOT }];
+                setChats([...chats]);
+            }
+        }
+    }, [chats]);
 
 
     const handleSubmit = useCallback((id, message) => {
-        console.log(id);
-        console.log(chats);
         chats[id].messages = [...chats[id].messages, { text: message, author: Authors.HUMAN }];
-        console.log();
         setChats([...chats]);
         setLastChatId(id);
-    }, [chats]);
+    }, [chats, lastChatId]);
 
     return (
         <>
