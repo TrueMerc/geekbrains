@@ -7,16 +7,26 @@ import "../main.css";
 const ChatList = ({ chatsInfo }) => {
     console.log(chatsInfo);
     return (
-        <List className="chat-list">
-            {chatsInfo.map(chatInfo => (
-                <ListItem key={"listItem" + chatInfo.id}>
-                    <Link to={'/chats/' + chatInfo.id}>
-                        <h4>{chatInfo.name}</h4>
-                    </Link>
-                </ListItem>
-            ))
-            }
-        </List>
+        <div className="chat-list">
+            <List>
+                {chatsInfo.map(chatInfo => (
+                    <ListItem key={"listItem" + chatInfo.id}>
+                        <Link to={'/chats/' + chatInfo.id}>
+                            <h4>{chatInfo.name}</h4>
+                        </Link>
+                    </ListItem>
+                ))
+                }
+            </List>
+            <div className="controls-block">
+                <button className="control-button add-button">
+                    Добавить 
+                </button>
+                <button className="control-button remove-button">
+                    Удалить
+                </button>
+            </div>
+        </div>
     );
 }
 
