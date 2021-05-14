@@ -19,9 +19,10 @@ export const Layout = ({ chatsCount }) => {
 
     const [lastChatId, setLastChatId] = useState(DEFAULT_CHAT);
 
-
     // Bot answer    
     useEffect(() => {
+        console.log(chats);
+        console.log(lastChatId);
         if (lastChatId < 0) {
             return;
         }
@@ -36,7 +37,7 @@ export const Layout = ({ chatsCount }) => {
                 setChats([...chats]);
             }
         }
-    }, [chats]);
+    }, [chats, lastChatId]);
 
 
     const handleSubmit = useCallback((id, message) => {
@@ -45,12 +46,27 @@ export const Layout = ({ chatsCount }) => {
         setLastChatId(id);
     }, [chats, lastChatId]);
 
+    const handleChatAddition = () => {
+        setChats([...chats, { name: "Чат №" + (chats.length + 1), messages: [] }])
+    }
+
+    const handleChatDeletion = () => {
+        if(chats.length > 1) {
+            setLastChatId(chats.length - 2);
+            setChats(chats.slice(0, chats.length - 1));
+        }
+    }
+
     return (
         <>
             <BrowserRouter>
                 <Header />
                 <div style={{ width: '100%', height: '100%', display: 'flex', overflow: 'hidden' }}>
-                    <ChatList chatsInfo={chats.map((chat, index) => ({ id: index, name: chat.name }))} />
+                    <ChatList
+                        chatsInfo={chats.map((chat, index) => ({ id: index, name: chat.name }))}
+                        onChatAddition={handleChatAddition}
+                        onChatDeletion={handleChatDeletion}
+                    />
                     <Switch >
                         <Route path="/" exact>
                             <Redirect to={"/chats/" + DEFAULT_CHAT} />

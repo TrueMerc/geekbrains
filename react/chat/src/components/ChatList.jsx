@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../main.css";
 
 
-const ChatList = ({ chatsInfo }) => {
+const ChatList = ({ chatsInfo, onChatAddition, onChatDeletion }) => {
     console.log(chatsInfo);
     return (
         <div className="chat-list">
@@ -19,10 +19,10 @@ const ChatList = ({ chatsInfo }) => {
                 }
             </List>
             <div className="controls-block">
-                <button className="control-button add-button">
+                <button className="control-button add-button" onClick={onChatAddition}>
                     Добавить 
                 </button>
-                <button className="control-button remove-button">
+                <button className="control-button remove-button" onClick={onChatDeletion}>
                     Удалить
                 </button>
             </div>
