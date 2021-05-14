@@ -9,13 +9,15 @@ import Authors from "../domain/Authors"
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 export const Layout = ({ chatsCount }) => {
+    const DEFAULT_CHAT = 0;
+
     const [chats, setChats] = useState(
         Array.from(Array(chatsCount).keys()).map(number => (
             { name: "Чат №" + (number + 1), messages: [] }
         ))
     );
 
-    const [lastChatId, setLastChatId] = useState(-1);
+    const [lastChatId, setLastChatId] = useState(DEFAULT_CHAT);
 
 
     // Bot answer    
@@ -51,7 +53,7 @@ export const Layout = ({ chatsCount }) => {
                     <ChatList chatsInfo={chats.map((chat, index) => ({ id: index, name: chat.name }))} />
                     <Switch >
                         <Route path="/" exact>
-                            <Redirect to="/chats/0" />
+                            <Redirect to={"/chats/" + DEFAULT_CHAT} />
                         </Route>
                         <Route path={"/chats/:chatId"} exact>
                             <Chat

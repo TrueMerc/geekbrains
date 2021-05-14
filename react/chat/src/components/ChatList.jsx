@@ -11,7 +11,7 @@ const ChatList = ({ chatsInfo }) => {
             {chatsInfo.map(chatInfo => (
                 <ListItem key={"listItem" + chatInfo.id}>
                     <Link to={'/chats/' + chatInfo.id}>
-                        {chatInfo.name}
+                        <h4>{chatInfo.name}</h4>
                     </Link>
                 </ListItem>
             ))

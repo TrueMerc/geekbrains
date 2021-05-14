@@ -28,6 +28,26 @@ html {
     background-color: midnightblue;
 }
 
+.chat-list a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.chat-list a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.chat-list a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+.chat-list a:hower {
+    color: #fff;
+    text-decoration: none;
+}
+
 .main-area {
     width: 88%;
     padding-left: 20px;
@@ -44,15 +64,27 @@ html {
 
 .header a:link {
     color: #fff;
+    text-decoration: none;
 }
 
 .header a:visited {
-    color:paleturquoise;
+    color: #fff;
+    text-decoration: none;
 }
+
+.header a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header a:hower {
+    color: #fff;
+    text-decoration: none;
+}
+
 
 .header-element {
     margin-left: 20px;
-
 }
 
 

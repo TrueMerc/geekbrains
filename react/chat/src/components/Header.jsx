@@ -10,10 +10,14 @@ const Header = () => {
                     <h2>Network chat</h2>
                 </div>
                 <Link to="/">
-                    <div className="header-element">Домой</div>
+                    <div className="header-element">
+                        <h4>Домой</h4>
+                    </div>
                 </Link>
                 <Link to="/profile">
-                    <div className="header-element">Профиль</div>
+                    <div className="header-element">
+                        <h4>Профиль</h4>
+                    </div>
                 </Link>
             </div>
         </>
