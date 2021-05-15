@@ -8,6 +8,7 @@ import Authors from "../domain/Authors";
 
 const Chat = () => {
     const chats = useSelector(state => state.chats);
+    const user = useSelector(state => state.user);
     const dispatch = useDispatch();
     const params = useParams();
     const id = Number.parseInt(params.chatId);
@@ -39,12 +40,16 @@ const Chat = () => {
     });
 
     const applyChanges = (newChats) => {
-        dispatch({...changeChats, ['value']: newChats});
+        dispatch({ ...changeChats, ['value']: newChats });
     }
 
     return (
         <div className="main-area">
-            <h3>{chats[id].name}</h3>
+            <h3>
+                {chats[id].name}
+                &nbsp;&mdash;&nbsp;
+                {user.nickname}&nbsp;({`${user.surname} ${user.name}`})
+            </h3>
             <Messages messages={chats[id].messages} />
             <InputForm chatId={id} onSubmit={handleSubmit} />
         </div>
