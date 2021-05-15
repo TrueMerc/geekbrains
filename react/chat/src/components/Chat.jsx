@@ -12,26 +12,24 @@ const Chat = () => {
     const params = useParams();
     const id = Number.parseInt(params.chatId);
 
-
-    // // Bot answer    
-    // useEffect(() => {
-    //     console.log(chats);
-    //     console.log(lastChatId);
-    //     if (lastChatId < 0) {
-    //         return;
-    //     }
-    //     const messages = chats[lastChatId].messages;
-    //     if (messages.length > 0) {
-    //         const lastMessage = messages[messages.length - 1];
-    //         if (lastMessage.author === Authors.HUMAN) {
-    //             const answerText = (lastMessage.text.toLocaleLowerCase().search('привет') !== -1)
-    //                 ? 'Привет!'
-    //                 : 'Не могу разобрать сообщение.';
-    //             chats[lastChatId].messages = [...messages, { text: answerText, author: Authors.BOT }];
-    //             setChats([...chats]);
-    //         }
-    //     }
-    // }, [chats, lastChatId]);
+    // Bot answer    
+    useEffect(() => {
+        console.log(chats);
+        if (chats.length < 0) {
+            return;
+        }
+        const messages = chats[id].messages;
+        if (messages.length > 0) {
+            const lastMessage = messages[messages.length - 1];
+            if (lastMessage.author === Authors.HUMAN) {
+                const answerText = (lastMessage.text.toLocaleLowerCase().search('привет') !== -1)
+                    ? 'Привет!'
+                    : 'Не могу разобрать сообщение.';
+                chats[id].messages = [...messages, { text: answerText, author: Authors.BOT }];
+                applyChanges([...chats]);
+            }
+        }
+    }, [chats]);
 
 
     const handleSubmit = useCallback((id, message) => {
@@ -43,8 +41,6 @@ const Chat = () => {
     const applyChanges = (newChats) => {
         dispatch({...changeChats, ['value']: newChats});
     }
-
-
 
     return (
         <div className="main-area">
