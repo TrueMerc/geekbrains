@@ -61,6 +61,9 @@ const Profile = () => {
                     }
                 </tbody>
             </table>
+            {user.nickname.length > 0 &&
+                <p>Пользователь будет отображен как: {user.nickname}</p>
+            }
         </div>
     );
 }
