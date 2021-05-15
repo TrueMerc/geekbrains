@@ -123,3 +123,7 @@ html {
     color: #fff;
     background-color: red;
 }
+
+.profile__input-field:not(:first-child) {
+    margin-top: 20px;
+}

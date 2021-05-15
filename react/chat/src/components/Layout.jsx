@@ -4,9 +4,10 @@ import Chat from "./Chat.jsx"
 import ChatList from "./ChatList.jsx";
 import Header from "./Header.jsx";
 import "../main.css";
-import { Profile } from "./Profile.jsx";
+import Profile from "./Profile.jsx";
 import Authors from "../domain/Authors"
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import User from "../domain/User.js";
 
 export const Layout = ({ chatsCount }) => {
     const DEFAULT_CHAT = 0;
@@ -78,7 +79,7 @@ export const Layout = ({ chatsCount }) => {
                             />
                         </Route>
                         <Route path="/profile">
-                            <Profile />
+                            <Profile user={new User('Иван', 'Иванов', 'ivan', 'Russia')} />
                         </Route>
                     </Switch>
                 </div>
