@@ -1,5 +1,8 @@
 import React from "react";
-import "../main.css"
+import { store } from "../store";
+import { changeProfile } from "../store/chat/actions";
+import "../main.css";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const InputField = ({ fieldName, fieldValue, onChange }) => {
@@ -21,10 +24,18 @@ const InputField = ({ fieldName, fieldValue, onChange }) => {
     );
 }
 
-const Profile = ({ user }) => {
+const Profile = () => {
+
+    const user = useSelector(state => state.user);
+    const dispatch = useDispatch();
 
     const handleInputChange = (fieldName) => (fieldValue) => {
         console.log(`${fieldName} = ${fieldValue}`);
+        const newUser = { ...user, [fieldName]: fieldValue };
+        console.log(newUser);
+        const change = { ...changeProfile, ['value']: newUser };
+        console.log(change);
+        dispatch(change);
     }
 
     const fields = [

@@ -7,7 +7,9 @@ import "../main.css";
 import Profile from "./Profile.jsx";
 import Authors from "../domain/Authors"
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import User from "../domain/User.js";
+import { Provider } from "react-redux";
+import { store } from "../store";
+
 
 export const Layout = ({ chatsCount }) => {
     const DEFAULT_CHAT = 0;
@@ -52,7 +54,7 @@ export const Layout = ({ chatsCount }) => {
     }
 
     const handleChatDeletion = () => {
-        if(chats.length > 1) {
+        if (chats.length > 1) {
             setLastChatId(chats.length - 2);
             setChats(chats.slice(0, chats.length - 1));
         }
@@ -79,7 +81,9 @@ export const Layout = ({ chatsCount }) => {
                             />
                         </Route>
                         <Route path="/profile">
-                            <Profile user={new User('Иван', 'Иванов', 'ivan', 'Russia')} />
+                            <Provider store={store}>
+                                <Profile />
+                            </Provider>
                         </Route>
                     </Switch>
                 </div>
