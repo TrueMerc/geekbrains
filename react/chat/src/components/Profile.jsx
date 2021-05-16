@@ -1,5 +1,5 @@
 import React from "react";
-import { changeProfile } from "../store/chats/actions";
+import { changeProfile } from "../store/profile/actions";
 import "../main.css";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -24,7 +24,7 @@ const InputField = ({ fieldValue, onChange }) => {
 
 const Profile = () => {
 
-    const user = useSelector(state => state.user);
+    const user = useSelector(state => state.profile.user);
     const dispatch = useDispatch();
 
     const handleInputChange = (fieldName) => (fieldValue) => {

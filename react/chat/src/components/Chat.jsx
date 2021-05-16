@@ -7,8 +7,8 @@ import { changeChats } from "../store/chats/actions";
 import Authors from "../domain/Authors";
 
 const Chat = () => {
-    const chats = useSelector(state => state.chats);
-    const user = useSelector(state => state.user);
+    const chats = useSelector(state => state.chats.chats);
+    const user = useSelector(state => state.profile.user);
     const dispatch = useDispatch();
     const params = useParams();
     const id = Number.parseInt(params.chatId);
