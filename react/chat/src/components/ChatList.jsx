@@ -3,7 +3,7 @@ import { List, ListItem } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "../main.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeChats } from "../store/chat/actions";
+import { changeChats } from "../store/chats/actions";
 
 const ChatList = () => {
     const chats = useSelector(state => {

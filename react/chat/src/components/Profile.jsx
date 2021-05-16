@@ -1,5 +1,5 @@
 import React from "react";
-import { changeProfile } from "../store/chat/actions";
+import { changeProfile } from "../store/chats/actions";
 import "../main.css";
 import { useDispatch, useSelector } from "react-redux";
 

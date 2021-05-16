@@ -1,4 +1,4 @@
 import { createStore } from 'redux';
-import { chatReducer } from './chat/reducer';
+import { chatReducer } from './chats/reducer';
 
 export const store = createStore(chatReducer);

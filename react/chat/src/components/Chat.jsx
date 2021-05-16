@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useParams } from "react-router";
 import InputForm from "./InputForm.jsx";
 import Messages from "./Messages.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { changeChats } from "../store/chat/actions";
+import { changeChats } from "../store/chats/actions";
 import Authors from "../domain/Authors";
 
 const Chat = () => {
