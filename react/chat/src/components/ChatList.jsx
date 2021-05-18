@@ -7,7 +7,6 @@ import { changeChats } from "../store/chats/actions";
 
 const ChatList = () => {
     const chats = useSelector(state => {
-        console.log(state);
         return state.chats.chats;
     });
     const dispatch = useDispatch();

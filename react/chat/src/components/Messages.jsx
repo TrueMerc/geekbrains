@@ -3,9 +3,7 @@ import Message from "./Message.jsx"
 import '../main.css'
 
 const Messages = (props) => {
-
     const { messages } = props;
-    console.log(messages);
     return (
         <div className="messages-field">
             <h3>Сообщения:</h3>
