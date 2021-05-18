@@ -11,7 +11,7 @@ const Chat = () => {
     const user = useSelector(state => state.profile.user);
     const dispatch = useDispatch();
     const params = useParams();
-    const id = Number.parseInt(params.chatId);
+    const id = Number.parseInt(params.chatId) || 0;
 
     // Bot answer    
     useEffect(() => {
