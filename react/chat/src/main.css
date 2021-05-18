@@ -26,9 +26,31 @@ html {
     overflow: hidden;
     color: #fff;
     background-color: midnightblue;
+    display: flex;
+    flex-direction: column;
 }
 
-.messenger {
+.chat-list a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.chat-list a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.chat-list a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+.chat-list a:hower {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-area {
     width: 88%;
     padding-left: 20px;
 }
@@ -38,4 +60,66 @@ html {
     margin-top: 0px;
     color: #fff;
     background-color: navy;
+    display: flex;
+    align-items: center;
+}
+
+.header a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header a:hower {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.header-element {
+    margin-left: 20px;
+}
+
+.input-form {
+    width: 100%;
+    display: flex;
+}
+
+.controls-block {
+    width: 100%;
+    margin: auto auto 50px;
+}
+
+.control-button {
+    width: 50%;
+    display: block;
+    border: 0px;
+    border-radius: 5px;
+    text-align: center;
+    height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.control-button:not(:first-child) {
+    margin-top: 10px;
+}
+
+.add-button {
+    color: #fff;
+    background-color:#169137;
+}
+
+.remove-button {
+    color: #fff;
+    background-color: red;
 }

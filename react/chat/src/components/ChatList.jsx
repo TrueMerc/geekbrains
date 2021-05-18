@@ -1,18 +1,32 @@
 import React from "react";
 import { List, ListItem } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import "../main.css";
 
 
-const ChatList = () => {
+const ChatList = ({ chatsInfo, onChatAddition, onChatDeletion }) => {
+    console.log(chatsInfo);
     return (
-        <List className="chat-list">
-            <ListItem>Чат №1</ListItem>
-            <ListItem>Чат №2</ListItem>
-            <ListItem>Чат №3</ListItem>
-            <ListItem>Чат №4</ListItem>
-            <ListItem>Чат №5</ListItem>
-            <ListItem>Чат №5</ListItem>
-        </List>
+        <div className="chat-list">
+            <List>
+                {chatsInfo.map(chatInfo => (
+                    <ListItem key={"listItem" + chatInfo.id}>
+                        <Link to={'/chats/' + chatInfo.id}>
+                            <h4>{chatInfo.name}</h4>
+                        </Link>
+                    </ListItem>
+                ))
+                }
+            </List>
+            <div className="controls-block">
+                <button className="control-button add-button" onClick={onChatAddition}>
+                    Добавить 
+                </button>
+                <button className="control-button remove-button" onClick={onChatDeletion}>
+                    Удалить
+                </button>
+            </div>
+        </div>
     );
 }
 
