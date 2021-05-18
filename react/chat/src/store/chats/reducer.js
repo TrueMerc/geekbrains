@@ -15,7 +15,7 @@ export const chatsReducer = (state = initialState, action) => {
         case CHANGE_CHATS: {
             return {
                 ...state,
-                ['chats']: action.value
+                chats: action.value
             };
         }
         default:

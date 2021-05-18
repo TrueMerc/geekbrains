@@ -22,7 +22,7 @@ const ChatList = () => {
     }
 
     const applyChanges = (newChats) => {
-        dispatch({...changeChats, ['value']: newChats});
+        dispatch(changeChats(newChats));
     }
 
     return (

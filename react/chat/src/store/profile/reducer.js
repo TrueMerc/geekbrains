@@ -10,7 +10,7 @@ export const profileReducer = (state = initialState, action) => {
         case CHANGE_PROFILE: {
             return {
                 ...state,
-                ['user']: action.value
+                user: action.value
             };
         }
         default:

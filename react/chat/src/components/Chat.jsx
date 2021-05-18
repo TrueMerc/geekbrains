@@ -15,7 +15,6 @@ const Chat = () => {
 
     // Bot answer    
     useEffect(() => {
-        console.log(chats);
         if (chats.length < 0) {
             return;
         }
@@ -34,13 +33,12 @@ const Chat = () => {
 
 
     const handleSubmit = useCallback((id, message) => {
-        console.log(message);
         chats[id].messages = [...chats[id].messages, { text: message, author: Authors.HUMAN }];
         applyChanges([...chats]);
     });
 
     const applyChanges = (newChats) => {
-        dispatch({ ...changeChats, ['value']: newChats });
+        dispatch(changeChats(newChats));
     }
 
     return (

@@ -29,8 +29,7 @@ const Profile = () => {
 
     const handleInputChange = (fieldName) => (fieldValue) => {
         const newUser = { ...user, [fieldName]: fieldValue };
-        const change = { ...changeProfile, ['value']: newUser };
-        dispatch(change);
+        dispatch(changeProfile(newUser));
     }
 
     const fields = [
