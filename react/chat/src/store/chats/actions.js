@@ -1,9 +1,17 @@
-export const CHANGE_CHATS = "CHATS::CHANGE_CHATS";
+export const ADD_CHAT = "CHATS::ADD_CHAT";
+export const DELETE_CHAT = "CHATS::DELETE_CHAT";
 
-export const changeChats = (newChats) => {
+export const addChat = (newChat) => {
     return {
-        type: CHANGE_CHATS,
-        value: newChats
+        type: ADD_CHAT,
+        value: newChat
+    }
+}
+
+export const deleteChat = (chatId) => {
+    return {
+        type: DELETE_CHAT,
+        value: chatId
     }
 }
 

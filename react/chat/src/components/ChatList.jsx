@@ -3,7 +3,7 @@ import { List, ListItem } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "../main.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeChats } from "../store/chats/actions";
+import { addChat, deleteChat } from "../store/chats/actions";
 
 const ChatList = () => {
     const chats = useSelector(state => {
@@ -12,17 +12,13 @@ const ChatList = () => {
     const dispatch = useDispatch();
 
     const handleChatAddition = () => {
-        applyChanges([...chats, { name: "Чат №" + (chats.length + 1), messages: [] }]);
+        dispatch(addChat({id: chats.length, name: "Чат №" + (chats.length + 1)}));
     }
 
     const handleChatDeletion = () => {
         if (chats.length > 1) {
-            applyChanges(chats.slice(0, chats.length - 1));
+            dispatch(deleteChat(chats.length - 1));
         }
-    }
-
-    const applyChanges = (newChats) => {
-        dispatch(changeChats(newChats));
     }
 
     return (
