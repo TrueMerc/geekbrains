@@ -9,6 +9,9 @@ const ChatList = () => {
     const chats = useSelector(state => {
         return state.chats.chats;
     });
+    const lastMessageChatId = useSelector(state => {
+        return state.chats.lastMessageChatId
+    });
     const dispatch = useDispatch();
 
     const handleChatAddition = () => {
@@ -27,7 +30,7 @@ const ChatList = () => {
                 {chats.map((chat, index) => (
                     <ListItem key={"listItem" + index}>
                         <Link to={'/chats/' + index}>
-                            <h4 className={chat.isReceiveLastMessage ? 'blink' : ''}>
+                            <h4 className={chat.id === lastMessageChatId ? 'blink' : ''}>
                                 {chat.name}
                             </h4>
                         </Link>

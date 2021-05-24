@@ -1,12 +1,12 @@
 
-import { ADD_CHAT, DELETE_CHAT } from "./actions";
+import { ADD_CHAT, DELETE_CHAT, START_BLINK, STOP_BLINK } from "./actions";
 import { DEFAULT_CHATS_COUNT } from "../constants";
-import { ADD_MESSAGE } from "../messages/actions";
 
 export const initialState = {
     chats: Array.from(Array(DEFAULT_CHATS_COUNT).keys()).map(number => (
-        { id: number, name: "Чат №" + (number + 1), isReceiveLastMessage: false }
-    ))
+        { id: number, name: "Чат №" + (number + 1) }
+    )),
+    lastMessageChatId: -1
 };
 
 export const chatsReducer = (state = initialState, action) => {
@@ -23,9 +23,11 @@ export const chatsReducer = (state = initialState, action) => {
                 chats: state.chats.filter(chat => chat.id !== action.value)
             }
         }
-        case ADD_MESSAGE: {
-            state.chats[action.value.chatId].isReceiveLastMessage = true;
-            return {...state};
+        case START_BLINK: {
+            return {...state, lastMessageChatId: action.value };
+        }
+        case STOP_BLINK: {
+            return {...state, lastMessageChatId: -1 };
         }
         default:
             return state;

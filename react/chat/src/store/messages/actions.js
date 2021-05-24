@@ -1,4 +1,5 @@
 import Authors from "../../domain/Authors";
+import { startBlinkWithThunk } from "../chats/actions";
 
 export const ADD_MESSAGE = "MESSAGES::ADD_MESSAGE";
 
@@ -19,6 +20,7 @@ export const addMessageWithThunk = (newMessage, chatId) => (dispatch) => {
 
         const timeout = setTimeout(() => {
             dispatch(addMessage({ text: text, author: Authors.BOT }, chatId));
+            dispatch(startBlinkWithThunk({ text: text, author: Authors.BOT }, chatId));
         }, 1000);
     }
 }
