@@ -2,11 +2,19 @@ import Authors from "../../domain/Authors";
 import { startBlinkWithThunk } from "../chats/actions";
 
 export const ADD_MESSAGE = "MESSAGES::ADD_MESSAGE";
+export const DELETE_MESSAGE = "MESSAGES::DELETE_MESSAGE";
 
 export const addMessage = (newMessage, chatId) => {
     return {
         type: ADD_MESSAGE,
         value: { newMessage, chatId }
+    }
+}
+
+export const deleteMessage = (chatId) => {
+    return {
+        type: DELETE_MESSAGE,
+        value: chatId
     }
 }
 

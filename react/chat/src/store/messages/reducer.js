@@ -1,5 +1,5 @@
 import User from "../../domain/User";
-import { ADD_MESSAGE } from "./actions";
+import { ADD_MESSAGE, DELETE_MESSAGE } from "./actions";
 import { ADD_CHAT } from "../chats/actions";
 import { DEFAULT_CHATS_COUNT } from "../constants";
 
@@ -29,6 +29,19 @@ export const messageReducer = (state = initialState, action) => {
                 messagesList: {
                     ...state.messagesList,
                     [action.value.chatId]: []
+                }
+            }
+        }
+        case DELETE_MESSAGE: {
+            const messages = state.messagesList[action.value];
+            if(messages.length < 1) {
+                return state;
+            }
+            return {
+                ...state,
+                messagesList: {
+                    ...state.messagesList,
+                    [action.value]: messages.slice(0,  messages.length - 1)
                 }
             }
         }

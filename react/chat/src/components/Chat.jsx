@@ -3,7 +3,7 @@ import { Redirect, useParams } from "react-router";
 import InputForm from "./InputForm.jsx";
 import Messages from "./Messages.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { addMessageWithThunk } from "../store/messages/actions";
+import { addMessageWithThunk, deleteMessage } from "../store/messages/actions";
 import Authors from "../domain/Authors";
 
 const Chat = () => {
@@ -23,6 +23,11 @@ const Chat = () => {
         dispatch(addMessageWithThunk(message, chatId));
     }
 
+    const handleMessageDeletion = () => {
+        console.log("Trying to delete");
+        dispatch(deleteMessage(id));
+    }
+
     return (
         <>
             {(chats.length <= id) &&
@@ -36,9 +41,12 @@ const Chat = () => {
                         {user.nickname}&nbsp;({`${user.surname} ${user.name}`})
                      </h3>
                     <Messages messages={messages} />
-                    <InputForm chatId={id} onSubmit={handleSubmit} />
+                    <InputForm
+                        chatId={id}
+                        onSubmit={handleSubmit}
+                        onDelete={handleMessageDeletion}
+                    />
                 </div>
-
             }
         </>
     );

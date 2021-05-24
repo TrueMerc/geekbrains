@@ -4,7 +4,7 @@ import SendIcon from '@material-ui/icons/Send';
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import "../main.css";
 
-const InputForm = ({chatId, onSubmit }) => {
+const InputForm = ({chatId, onSubmit, onDelete}) => {
     const [currentMessage, setCurrentMessage] = useState('');
 
     const handleSubmit = (event) => {
@@ -16,6 +16,11 @@ const InputForm = ({chatId, onSubmit }) => {
 
     const handleInputChange = (event) => {
         setCurrentMessage(event.target.value);
+    }
+
+    const handleMessageDeletion = (event) => {
+        event.preventDefault();
+        onDelete();
     }
 
     return (
@@ -31,7 +36,7 @@ const InputForm = ({chatId, onSubmit }) => {
                 <Fab className="input-form-button" onClick={handleSubmit}>
                     <SendIcon />
                 </Fab>
-                <Fab className="input-form-button" onClick={()=>{}}>
+                <Fab className="input-form-button" onClick={handleMessageDeletion}>
                     <BackspaceIcon />
                 </Fab>
             </div>
