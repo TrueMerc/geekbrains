@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Fab } from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
+import BackspaceIcon from '@material-ui/icons/Backspace';
 import "../main.css";
 
 const InputForm = ({chatId, onSubmit }) => {
@@ -27,8 +28,11 @@ const InputForm = ({chatId, onSubmit }) => {
                     onChange={handleInputChange}
                     value={currentMessage}
                 />
-                <Fab onClick={handleSubmit}>
+                <Fab className="input-form-button" onClick={handleSubmit}>
                     <SendIcon />
+                </Fab>
+                <Fab className="input-form-button" onClick={()=>{}}>
+                    <BackspaceIcon />
                 </Fab>
             </div>
         </form>

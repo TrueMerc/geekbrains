@@ -134,3 +134,7 @@ html {
         opacity: 0;
     }
 }
+
+.input-form-button:not(:first-child) {
+    margin-left: 15px;
+}
