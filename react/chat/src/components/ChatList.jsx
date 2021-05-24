@@ -12,7 +12,7 @@ const ChatList = () => {
     const dispatch = useDispatch();
 
     const handleChatAddition = () => {
-        dispatch(addChat({id: chats.length, name: "Чат №" + (chats.length + 1)}));
+        dispatch(addChat({ id: chats.length, name: "Чат №" + (chats.length + 1) }));
     }
 
     const handleChatDeletion = () => {
@@ -27,7 +27,9 @@ const ChatList = () => {
                 {chats.map((chat, index) => (
                     <ListItem key={"listItem" + index}>
                         <Link to={'/chats/' + index}>
-                            <h4>{chat.name}</h4>
+                            <h4 className={chat.isReceiveLastMessage ? 'blink' : ''}>
+                                {chat.name}
+                            </h4>
                         </Link>
                     </ListItem>
                 ))
@@ -35,7 +37,7 @@ const ChatList = () => {
             </List>
             <div className="controls-block">
                 <button className="control-button add-button" onClick={handleChatAddition}>
-                    Добавить 
+                    Добавить
                 </button>
                 <button className="control-button remove-button" onClick={handleChatDeletion}>
                     Удалить

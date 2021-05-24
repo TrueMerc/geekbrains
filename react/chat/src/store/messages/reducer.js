@@ -1,10 +1,11 @@
 import User from "../../domain/User";
 import { ADD_MESSAGE } from "./actions";
 import { ADD_CHAT } from "../chats/actions";
+import { DEFAULT_CHATS_COUNT } from "../constants";
 
 const initialState = {
     messagesList: Object.fromEntries(
-        Array.from(Array(5).keys()).map(index => ([index, []]))
+        Array.from(Array(DEFAULT_CHATS_COUNT).keys()).map(index => ([index, []]))
     )
 };
 
@@ -35,3 +36,4 @@ export const messageReducer = (state = initialState, action) => {
             return state;
     }
 }
+
