@@ -28,7 +28,7 @@ export const startBlink = (chatId) => {
 
 export const stopBlink = () => {
     return {
-        type: START_BLINK,
+        type: STOP_BLINK,
         value: {}
     }
 }
