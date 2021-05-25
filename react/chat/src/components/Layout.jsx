@@ -25,6 +25,9 @@ export const Layout = () => {
                     <Route path="/profile">
                         <Profile />
                     </Route>
+                    <Route path="*">
+                        <Redirect to="/" />
+                    </Route>
                 </Switch>
             </div>
         </BrowserRouter>

@@ -3,27 +3,25 @@ import { List, ListItem } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "../main.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeChats } from "../store/chats/actions";
+import { addChat, deleteChat } from "../store/chats/actions";
 
 const ChatList = () => {
     const chats = useSelector(state => {
-        console.log(state);
         return state.chats.chats;
+    });
+    const lastMessageChatId = useSelector(state => {
+        return state.chats.lastMessageChatId
     });
     const dispatch = useDispatch();
 
     const handleChatAddition = () => {
-        applyChanges([...chats, { name: "Чат №" + (chats.length + 1), messages: [] }]);
+        dispatch(addChat({ id: chats.length, name: "Чат №" + (chats.length + 1) }));
     }
 
     const handleChatDeletion = () => {
         if (chats.length > 1) {
-            applyChanges(chats.slice(0, chats.length - 1));
+            dispatch(deleteChat(chats.length - 1));
         }
-    }
-
-    const applyChanges = (newChats) => {
-        dispatch({...changeChats, ['value']: newChats});
     }
 
     return (
@@ -32,7 +30,9 @@ const ChatList = () => {
                 {chats.map((chat, index) => (
                     <ListItem key={"listItem" + index}>
                         <Link to={'/chats/' + index}>
-                            <h4>{chat.name}</h4>
+                            <h4 className={chat.id === lastMessageChatId ? 'blink' : ''}>
+                                {chat.name}
+                            </h4>
                         </Link>
                     </ListItem>
                 ))
@@ -40,7 +40,7 @@ const ChatList = () => {
             </List>
             <div className="controls-block">
                 <button className="control-button add-button" onClick={handleChatAddition}>
-                    Добавить 
+                    Добавить
                 </button>
                 <button className="control-button remove-button" onClick={handleChatDeletion}>
                     Удалить

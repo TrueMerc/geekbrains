@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { TextField, Fab } from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
+import BackspaceIcon from '@material-ui/icons/Backspace';
 import "../main.css";
 
-const InputForm = ({chatId, onSubmit }) => {
+const InputForm = ({chatId, onSubmit, onDelete}) => {
     const [currentMessage, setCurrentMessage] = useState('');
 
     const handleSubmit = (event) => {
@@ -17,6 +18,11 @@ const InputForm = ({chatId, onSubmit }) => {
         setCurrentMessage(event.target.value);
     }
 
+    const handleMessageDeletion = (event) => {
+        event.preventDefault();
+        onDelete();
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <p>Введите текст:</p>
@@ -27,8 +33,11 @@ const InputForm = ({chatId, onSubmit }) => {
                     onChange={handleInputChange}
                     value={currentMessage}
                 />
-                <Fab onClick={handleSubmit}>
+                <Fab className="input-form-button" onClick={handleSubmit}>
                     <SendIcon />
+                </Fab>
+                <Fab className="input-form-button" onClick={handleMessageDeletion}>
+                    <BackspaceIcon />
                 </Fab>
             </div>
         </form>

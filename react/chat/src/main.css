@@ -12,12 +12,10 @@ html {
     color: blue;
 }
 
-
 .messages-field {
     width: 100%;
     height: 80vh;
     border-bottom: 1px, solid;
-    
 }
 
 .chat-list {
@@ -84,7 +82,6 @@ html {
     text-decoration: none;
 }
 
-
 .header-element {
     margin-left: 20px;
 }
@@ -116,7 +113,7 @@ html {
 
 .add-button {
     color: #fff;
-    background-color:#169137;
+    background-color: #169137;
 }
 
 .remove-button {
@@ -126,4 +123,18 @@ html {
 
 .profile__input-field:not(:first-child) {
     margin-top: 20px;
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.input-form-button:not(:first-child) {
+    margin-left: 15px;
 }

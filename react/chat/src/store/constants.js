@@ -1,0 +1,1 @@
+export const DEFAULT_CHATS_COUNT = 5;
