@@ -40,6 +40,7 @@ export const addMessageWithThunk = (newMessage, chatId) => (dispatch) => {
             const text = XmlMessageText(xml);
             console.log(text);
             dispatch(addMessage({ text: text, author: Authors.BOT }, chatId));
+            dispatch(startBlinkWithThunk({ text: text, author: Authors.BOT }, chatId));
         }).catch((error) => {
             console.error(error);
         });
