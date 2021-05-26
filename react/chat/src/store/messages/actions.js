@@ -1,6 +1,7 @@
 import Authors from "../../domain/Authors";
 import BotSettings from "../../domain/BotSettings";
 import { RequestMessage } from "../../domain/RequestMessage";
+import { XmlMessageText } from "../../domain/XMLMessageText";
 import { startBlinkWithThunk } from "../chats/actions";
 
 export const ADD_MESSAGE = "MESSAGES::ADD_MESSAGE";
@@ -34,7 +35,9 @@ export const addMessageWithThunk = (newMessage, chatId) => (dispatch) => {
             } else {
                 throw new Error('Request failed.');
             } 
-        }).then((text) => {
+        }).then((xml) => {
+            console.log(xml);
+            const text = XmlMessageText(xml);
             console.log(text);
             dispatch(addMessage({ text: text, author: Authors.BOT }, chatId));
         }).catch((error) => {
