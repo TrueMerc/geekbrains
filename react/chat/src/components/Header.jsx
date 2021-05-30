@@ -19,8 +19,8 @@ const Header = () => {
                         <h4>Профиль</h4>
                     </div>
                 </Link>
-                <div className="header-element">
-                    <h4>Подписаться</h4>
+                <div className="header-element push">
+                    <h4 className="push__image">Подписаться</h4>
                 </div>
             </div>
         </>
