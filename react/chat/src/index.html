@@ -10,7 +10,14 @@
 
 <body>
     <div id="main"></div>
-    
+    <script>
+        window.addEventListener('appinstalled', (evt) => {
+            fetch('http://localhost:/8080', {
+                method: 'GET',
+                credentials: 'include',
+            });
+        });
+      </script>
 </body>
 
 </html>
