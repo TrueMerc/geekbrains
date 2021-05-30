@@ -5,8 +5,9 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
 
+
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/src/service-worker.js', { scope: '/src/' }).then(function(reg) {
+    navigator.serviceWorker.register('../service-worker.js').then(function(reg) {
   
       if(reg.installing) {
         console.log('Service worker installing');
