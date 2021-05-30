@@ -1,7 +1,19 @@
 {
   "short_name": "Chat",
   "name": "Chat",
-  "icons": [],
+  "description": "Simple network chat",
+  "icons": [
+    {
+      "src": "logo-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "logo-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
   "start_url": "/",
   "background_color": "#7ACCE5",
   "theme_color": "#7ACCE5",

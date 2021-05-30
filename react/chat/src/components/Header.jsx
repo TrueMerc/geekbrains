@@ -19,6 +19,9 @@ const Header = () => {
                         <h4>Профиль</h4>
                     </div>
                 </Link>
+                <div className="header-element">
+                    <h4>Подписаться</h4>
+                </div>
             </div>
         </>
     );
