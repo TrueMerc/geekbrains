@@ -18,15 +18,42 @@ html {
     border-bottom: 1px, solid;
 }
 
-.chat-list {
-    width: 10%;
-    height: 95vh;
-    overflow: hidden;
-    color: #fff;
-    background-color: midnightblue;
-    display: flex;
-    flex-direction: column;
+@media screen and (min-width: 1400px) {
+    .chat-list {
+        width: 10%;
+        height: 95vh;
+        overflow: hidden;
+        color: #fff;
+        background-color: midnightblue;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .add-button {
+        color: #fff;
+        background-color: #169137;
+    }
+
+    .remove-button {
+        color: #fff;
+        background-color: red;
+    }
 }
+
+@media screen and (max-width: 1400px) {
+    .chat-list {
+        display: none;
+    }
+
+    .add-button {
+        display: none;
+    }
+
+    .remove-button {
+        display: none;
+    }
+}
+
 
 .chat-list a:link {
     color: #fff;
@@ -111,15 +138,12 @@ html {
     margin-top: 10px;
 }
 
-.add-button {
-    color: #fff;
-    background-color: #169137;
+@media screen and (min-width: 1440px) {
 }
 
-.remove-button {
-    color: #fff;
-    background-color: red;
-}
+
+
+
 
 .profile__input-field:not(:first-child) {
     margin-top: 20px;
