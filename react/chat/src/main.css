@@ -111,6 +111,7 @@ html {
 
 .header-element {
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .input-form {
@@ -137,13 +138,6 @@ html {
 .control-button:not(:first-child) {
     margin-top: 10px;
 }
-
-@media screen and (min-width: 1440px) {
-}
-
-
-
-
 
 .profile__input-field:not(:first-child) {
     margin-top: 20px;
