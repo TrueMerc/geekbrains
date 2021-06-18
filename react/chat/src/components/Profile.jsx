@@ -4,7 +4,7 @@ import "../main.css";
 import { useDispatch, useSelector } from "react-redux";
 
 
-const InputField = ({ fieldValue, onChange }) => {
+const InputField = ({ fieldValue, onChange, idSuffix }) => {
 
     const handleInputChange = (e) => {
         onChange(e.target.value);
@@ -13,7 +13,7 @@ const InputField = ({ fieldValue, onChange }) => {
     return (
         <div className="profile__input-field">
             <input
-                id="input"
+                id={"input_" + idSuffix}
                 type="text"
                 onChange={handleInputChange}
                 value={fieldValue}
@@ -53,6 +53,7 @@ const Profile = () => {
                                 <InputField
                                     fieldValue={field.value}
                                     onChange={field.onChange}
+                                    idSuffix={index}
                                 />
                             </td>
                         </tr>

@@ -4,10 +4,21 @@
 <head>
     <meta charset="utf-8">
     <title>Network chat</title>
+    <link rel="manifest" href="../manifest/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
     <div id="main"></div>
+    <script>
+        window.addEventListener('appinstalled', (evt) => {
+            fetch('http://localhost:/8080', {
+                method: 'GET',
+                credentials: 'include',
+            });
+        });
+      </script>
+      <script src="../notifications.js"></script>
 </body>
 
 </html>
